@@ -12,7 +12,7 @@ from models import InpaintModel
 app = FastAPI()
 
 origins = [
-    'http://localhost:3000', 'http://192.168.0.178:3000'
+    'http://localhost:3000'
 ]
 
 app.add_middleware(
@@ -23,14 +23,8 @@ app.add_middleware(
     allow_headers=['*']
 )
 
-
 manager = ConnectionManager()
 image_processor = ImageProcessing()
-
-
-@app.get('/')
-async def root():
-    return {'Wiadomość': ""}
 
 
 @app.websocket('/virtual_paint')

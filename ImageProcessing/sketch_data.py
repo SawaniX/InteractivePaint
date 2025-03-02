@@ -11,8 +11,8 @@ class Sketch:
     def __init__(self, kalman: KalmanFilter) -> None:
         self.kalman = kalman
         
-        self.shape = (480, 640)      #TODO - do env? na podstawie przychodzącego obrazu?
-        self.sketch = np.zeros((*self.shape, 3), np.uint8) + 255     #TODO to i shape do drawing_setup ??
+        self.shape = (480, 640)
+        self.sketch = np.zeros((*self.shape, 3), np.uint8) + 255
         self.sketch_history = None       
         
         self.color = Colors.BLACK

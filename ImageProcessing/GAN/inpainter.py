@@ -65,7 +65,7 @@ class Inpainter:
 	
 	def _load_models(self) -> None:
 		directory = 'ImageProcessing/GAN/models/'
-		weights = listdir(directory)		#TODO - zmienić na wczytywanie sciezki z pliku / pobieranie wag z dysku
+		weights = listdir(directory)
 		for file in weights:
 			model = Generator()
 			name = file.split('_')[0]
