@@ -1,3 +1,4 @@
+import os
 import torch
 import numpy as np
 from PIL import Image
@@ -47,11 +48,11 @@ class Recognizer:
 		return blank_img
 	
 	def _load_model(self) -> None:
-		path = 'ImageProcessing/GesturesRecognition/models/hand_recognition_model.pth.tar'
+		hand_recognition_model_path = os.environ.get('HAND_RECOGNITION_MODEL_PATH')
 		model = Net(input_shape=1,
 			  hidden_units=10,
 			  output_shape=7)
-		model.load_state_dict(torch.load(path))
+		model.load_state_dict(torch.load(hand_recognition_model_path))
 		model.eval()
 		self.model = model
 		

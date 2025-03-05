@@ -1,9 +1,9 @@
+import os
 import torch
 import numpy as np
 import torchvision.transforms.functional as F
 from PIL import Image
 from torchvision import transforms
-from torchvision.utils import save_image
 from os import listdir
 
 from .architecture import Generator
@@ -64,12 +64,12 @@ class Inpainter:
 
 	
 	def _load_models(self) -> None:
-		directory = 'ImageProcessing/GAN/models/'
-		weights = listdir(directory)
+		models_dir = os.environ.get('GAN_MODELS_DIR')
+		weights = listdir(models_dir)
 		for file in weights:
 			model = Generator()
 			name = file.split('_')[0]
-			checkpoint = torch.load(directory + file, map_location=torch.device(self.device))
+			checkpoint = torch.load(models_dir + file, map_location=torch.device(self.device))
 			model.load_state_dict(checkpoint['generator_state_dict'])
 			model.eval()
 			self.models[name] = model

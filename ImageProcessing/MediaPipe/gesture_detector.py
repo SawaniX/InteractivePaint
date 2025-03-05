@@ -1,16 +1,15 @@
+import os
 import mediapipe as mp
+import numpy as np
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 from PIL import Image
-import numpy as np
-import cv2
 
-from ImageProcessing.sketch_data import Sketch
 from ImageProcessing.GesturesRecognition.recognize import Recognizer
 
 
 class GestureDetector:
-    MODEL_PATH = 'ImageProcessing/MediaPipe/models/hand_landmarker.task'
+    MODEL_PATH = os.environ.get('MEDIAPIPE_MODEL_PATH')
 
     def __init__(self):
         base_options = python.BaseOptions(model_asset_path=self.MODEL_PATH)

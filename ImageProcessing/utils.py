@@ -1,6 +1,5 @@
 from PIL import Image
 from io import BytesIO
-from dataclasses import dataclass
 from enum import Enum
 import base64
 from mediapipe import solutions
