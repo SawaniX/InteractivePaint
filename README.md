@@ -20,3 +20,11 @@ Additonaly it allows user to inpaint created sketches using 3 pre-trained GAN mo
 ## Endpoints description 
 * ```/virtual_paint``` [WebSocket] - captures real-time camera frames and draws sketches based on hand gestures and position
 * ```/fill_sketch``` - inpaint a sketch using a selected GAN model
+
+# Installation and Configuration
+1. Clone 2 repos: [Backend](https://github.com/SawaniX/InteractivePaint) and [Frontend](https://github.com/SawaniX/InteractivePaintFrontend)
+2. Download GAN models and hand recognition model
+3. Prepare .env file based on the templete.env
+4. Run Frontend using ```npm start```
+5. Run Backend using ```uvicorn main:app```
+6. Enter ```localhost:3000```
